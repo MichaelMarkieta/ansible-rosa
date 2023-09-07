@@ -1,4 +1,4 @@
-cluster_name: pczarkow
+cluster_name: poc
 
 rosa_private_link: true
 # note private-link forces private to be true
@@ -7,8 +7,8 @@ rosa_private: false
 rosa_sts: true
 rosa_multi_az: true
 rosa_vpc_endpoints_enabled: true
-rosa_version: 4.12.12
-rosa_region: us-east-1
+rosa_version: 4.12.30
+rosa_region: ap-southeast-1
 rosa_vpc_cidr: "10.0.0.0/16"
 rosa_vpc_public_subnets: []
 
@@ -20,13 +20,13 @@ rosa_tgw_cidr: "10.0.0.0/8"
 rosa_egress_vpc_enabled: true
 rosa_egress_vpc_multi_az: true
 # defaults file for roles/vpc
-rosa_egress_vpc_cidr: "10.10.0.0/16"
+rosa_egress_vpc_cidr: "10.1.0.0/16"
 
 jumphost_instance_type: t2.micro
 
 proxy_enabled: true
 
-rosa_create_admin: true
+rosa_create_admin: false
 
 ## don't set these and let it use your already logged in accounts
 # aws_access_key_id:
