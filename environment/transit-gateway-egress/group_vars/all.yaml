@@ -11,6 +11,7 @@ rosa_version: 4.12.30
 rosa_region: ap-southeast-1
 rosa_vpc_cidr: "10.0.0.0/16"
 rosa_vpc_public_subnets: []
+rosa_compute_machine_type: c6a.2xlarge
 
 rosa_tgw_enabled: true
 # The full cidr that encompasses all VPCs the TGW will be
