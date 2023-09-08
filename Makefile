@@ -5,7 +5,7 @@
 CLUSTER_NAME ?= poc
 EXTRA_VARS ?= --extra-vars "cluster_name=$(CLUSTER_NAME)"
 
-VIRTUALENV ?= "./virtualenv/"
+VIRTUALENV ?= "./virtualenv"
 ANSIBLE = $(VIRTUALENV)/bin/ansible-playbook $(EXTRA_VARS)
 
 IGNORE_CERTS ?= false
