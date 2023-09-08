@@ -8,16 +8,21 @@ EXTRA_VARS ?= --extra-vars "cluster_name=$(CLUSTER_NAME)"
 VIRTUALENV ?= "./virtualenv/"
 ANSIBLE = $(VIRTUALENV)/bin/ansible-playbook $(EXTRA_VARS)
 
+IGNORE_CERTS ?= false
+IGNORE_CERTS_OPTION=
+ifeq ($(IGNORE_CERTS), true)
+IGNORE_CERTS_OPTION = --ignore-certs
+endif
 
 help:
 	@echo GLHF
 
 virtualenv:
-		LC_ALL=en_US.UTF-8 python3 -m venv $(VIRTUALENV)
+		LC_ALL=en_US.UTF-8 python -m venv $(VIRTUALENV)
 		. $(VIRTUALENV)/bin/activate
 		pip install pip --upgrade
 		LC_ALL=en_US.UTF-8 $(VIRTUALENV)/bin/pip3 install -r requirements.txt #--use-feature=2020-resolver
-		$(VIRTUALENV)/bin/ansible-galaxy collection install -r requirements.yml --ignore-certs
+		$(VIRTUALENV)/bin/ansible-galaxy collection install -r requirements.yml $(IGNORE_CERTS_OPTION)
 
 docker.image:
 	docker build -t quay.io/pczar/ansible-rosa .
